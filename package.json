@@ -11,7 +11,7 @@
     "release": "changeset publish"
   },
   "devDependencies": {
-    "@storybook/react": "^8.3.3",
+    "@storybook/react": "^8.3.2",
     "prettier": "3.3.3",
     "turbo": "^2.1.1",
     "typescript": "^5.4.5"
