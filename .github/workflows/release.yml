@@ -21,7 +21,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@ktcloud-front'
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
       - name: Creating .npmrc
         run: |
           cat << EOF > "./.npmrc"
