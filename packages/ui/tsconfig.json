@@ -13,7 +13,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "strict": true,
-    // "noEmit": true,
+    "noEmit": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
