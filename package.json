@@ -12,8 +12,8 @@
     "release": "changeset publish"
   },
   "devDependencies": {
-    "prettier": "3.3.3",
-    "turbo": "^2.1.1",
+    "prettier": "^3.2.5",
+    "turbo": "^2.1.2",
     "typescript": "^5.4.5"
   },
   "engines": {
