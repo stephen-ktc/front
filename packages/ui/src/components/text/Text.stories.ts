@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Text from './Text'; // 컴포넌트 불러오기
+import { Text } from './Text' // 컴포넌트 불러오기
 
 // Storybook 메타데이터 설정
 const meta: Meta<typeof Text> = {

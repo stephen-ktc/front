@@ -8,9 +8,9 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+  // argTypes: {
+  //   backgroundColor: { control: 'color' },
+  // },
   args: { onClick: fn() },
 } satisfies Meta<typeof Button>
 
