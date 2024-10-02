@@ -9,12 +9,11 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
-
 # production
 /build
+/build
+dist
+storybook-static
 
 # misc
 .DS_Store
@@ -37,6 +36,3 @@ next-env.d.ts
 
 # storybook
 *storybook.log
-
-# rollup
-.rollup.cache
