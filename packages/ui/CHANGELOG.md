@@ -1,5 +1,11 @@
 # @ktcloud-front/ui
 
+## 0.2.0
+
+### Minor Changes
+
+- setting
+
 ## 0.1.2
 
 ### Patch Changes
