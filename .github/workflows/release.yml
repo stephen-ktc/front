@@ -21,7 +21,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@ktcloud-front'
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm install
       - name: Creating .npmrc
         run: |
           cat << EOF > "./.npmrc"
@@ -30,7 +30,7 @@ jobs:
           EOF
         env:
           GH_REGISTRY_TOKEN: ${{ secrets.GH_REGISTRY_TOKEN }}
-      - name: Build with Turbo
+      - name: Build UI Package & Storybook
         run: npm run build
       - name: Create Release Pull Request or Publish to npm
         id: changesets

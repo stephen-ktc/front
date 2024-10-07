@@ -1,5 +1,11 @@
 # @ktcloud-front/eslint-config
 
+## 0.1.2
+
+### Patch Changes
+
+- 0.1.2
+
 ## 0.1.1
 
 ### Patch Changes

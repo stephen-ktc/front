@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
+    "build-storybook": "turbo build-storybook",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
@@ -11,14 +12,14 @@
     "release": "changeset publish"
   },
   "devDependencies": {
-    "prettier": "3.3.3",
-    "turbo": "^2.1.1",
+    "prettier": "^3.2.5",
+    "turbo": "^2.1.2",
     "typescript": "^5.4.5"
   },
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "npm@10.5.1",
+  "packageManager": "npm@10.8.2",
   "workspaces": [
     "apps/*",
     "packages/*"
@@ -27,10 +28,6 @@
     "dist",
     "src"
   ],
-  "volta": {
-    "node": "20.17.0",
-    "npm": "10.8.2"
-  },
   "dependencies": {
     "@changesets/cli": "^2.27.8",
     "@chromatic-com/storybook": "^2.0.2",
@@ -38,7 +35,10 @@
     "@storybook/addon-interactions": "^8.3.2",
     "@storybook/addon-links": "^8.3.2",
     "@storybook/addon-onboarding": "^8.3.2",
-    "@storybook/nextjs": "^8.3.2",
     "storybook": "^8.3.2"
+  },
+  "volta": {
+    "node": "20.17.0",
+    "npm": "10.8.2"
   }
 }

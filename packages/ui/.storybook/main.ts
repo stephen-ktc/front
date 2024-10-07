@@ -1,4 +1,4 @@
-import type { StorybookConfig } from '@storybook/nextjs'
+import type { StorybookConfig } from '@storybook/react-vite'
 
 import { join, dirname } from 'path'
 
@@ -19,8 +19,12 @@ const config: StorybookConfig = {
     getAbsolutePath('@storybook/addon-interactions'),
   ],
   framework: {
-    name: getAbsolutePath('@storybook/nextjs'),
+    name: getAbsolutePath('@storybook/react-vite'),
     options: {},
   },
+  typescript: {
+    reactDocgen: 'react-docgen',  // Storybook에서 TypeScript 지원 설정
+    check: false,                 // tsconfig.json 파일 체크 비활성화
+  }
 }
 export default config
