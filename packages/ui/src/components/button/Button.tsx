@@ -2,24 +2,31 @@ import React from 'react'
 import './button.css'
 
 export interface ButtonProps {
-  primary?: boolean
+  disabled?: boolean
+  loading?: boolean
   size?: 'small' | 'medium' | 'large'
+  variant?: 'contained' | 'outlined' | 'text'
+  color?: 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning'
+  href?: string
   label: string
-  backgroundColor?: string
   onClick?: () => void
 }
 
 export const Button = ({
-                         primary = false,
-                         size = 'medium',
-                         backgroundColor,
-                         label,
-                         ...props
+                        disabled = false,
+                        loading = false,
+                        size = 'medium',
+                        variant = 'contained',
+                        color = 'primary',
+                        label,
+                        onClick,
+                        ...props
                        }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary'
   return <button
+    disabled={disabled}
     type="button"
-    className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+    className={['storybook-button', `storybook-button--${size}`, `storybook-button--${variant}`].join(' ')}
+    onClick={onClick}
     {...props}
   >
     {label}
