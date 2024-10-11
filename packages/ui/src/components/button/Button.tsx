@@ -1,5 +1,5 @@
-import React from 'react'
-import './button.css'
+import React, { useState } from 'react'
+import './button.scss'
 
 export interface ButtonProps {
   disabled?: boolean
@@ -18,17 +18,30 @@ export const Button = ({
                         size = 'medium',
                         variant = 'contained',
                         color = 'primary',
+                        href,
                         label,
                         onClick,
                         ...props
                        }: ButtonProps) => {
-  return <button
-    disabled={disabled}
-    type="button"
-    className={['storybook-button', `storybook-button--${size}`, `storybook-button--${variant}`].join(' ')}
-    onClick={onClick}
-    {...props}
-  >
-    {label}
-  </button>
+                         
+  return(
+    loading? 
+      <button 
+        type='button'
+        className={['loading-button', `storybook-button--${size}`, `storybook-button-spin-${variant}`].join(' ')} 
+        disabled={true}
+      >
+        <span className={[`loader-${variant}`].join(' ')}></span>
+      </button>
+    :
+      <button
+        type='button'
+        // disabled={disabled}
+        className={['storybook-button', `storybook-button--${size}`, `storybook-button-${color}-${variant}`].join(' ')}
+        onClick={href ? () => (window.location.href = href) : onClick}
+        {...props}
+      >
+        {label}
+      </button>
+  )  
 }
