@@ -205,35 +205,41 @@
     --ktc-color-text-error: var(--ktc-color-red-600);
     --ktc-color-text-disabled: var(--ktc-color-gray-300);
     /* [SYSTEM TOKEN] status color */
-    --ktc-color-warning: var(--ktc-color-gray-300);
-    --ktc-color-error: var(--ktc-color-gray-400);
-    --ktc-color-info: var(--ktc-color-gray-500);
-    --ktc-color-success: var(--ktc-color-gray-600);
-    --ktc-color-disabled: var(--ktc-color-gray-700);
+    --ktc-color-warning: var(--ktc-color-yellow-600);
+    --ktc-color-error: var(--ktc-color-red-600);
+    --ktc-color-success: var(--ktc-color-teal-600);
+    --ktc-color-disabled: var(--ktc-color-gray-600);
 }
 
 /* [COMPONENT TOKEN] text typography */
 .ktc-color-text-primary {
     color: var(--ktc-color-primary)
 }
+
 .ktc-color-text-secondary {
     color: var(--ktc-color-secondary)
 }
+
 .ktc-color-text-background {
     color: var(--ktc-color-background)
 }
+
 .ktc-color-text-warning {
     color: var(--ktc-color-warning)
 }
+
 .ktc-color-text-error {
     color: var(--ktc-color-error)
 }
+
 .ktc-color-text-info {
-    color: var(--ktc-color-info)
+    color: var(--ktc-color-success)
 }
+
 .ktc-color-text-success {
     color: var(--ktc-color-success)
 }
+
 .ktc-color-text-disabled {
     color: var(--ktc-color-disabled)
 }
@@ -244,46 +250,55 @@
     line-height: var(--ktc-line-height-3xl);
     font-weight: var(--ktc-font-weight-semibold);
 }
+
 .ktc-typography-heading2 {
     font-size: var(--ktc-font-size-2xl);
     line-height: var(--ktc-line-height-2xl);
     font-weight: var(--ktc-font-weight-semibold);
 }
+
 .ktc-typography-heading3 {
     font-size: var(--ktc-font-size-xl);
     line-height: var(--ktc-line-height-xl);
     font-weight: var(--ktc-font-weight-semibold);
 }
+
 .ktc-typography-heading4 {
     font-size: var(--ktc-font-size-l);
     line-height: var(--ktc-line-height-l);
     font-weight: var(--ktc-font-weight-semibold);
 }
+
 .ktc-typography-heading5 {
     font-size: var(--ktc-font-size-m);
     line-height: var(--ktc-line-height-m);
     font-weight: var(--ktc-font-weight-semibold);
 }
+
 .ktc-typography-subtitle1 {
     font-size: var(--ktc-font-size-s);
     line-height: var(--ktc-line-height-s);
     font-weight: var(--ktc-font-weight-semibold);
 }
+
 .ktc-typography-subtitle2 {
     font-size: var(--ktc-font-size-xs);
     line-height: var(--ktc-line-height-xs);
     font-weight: var(--ktc-font-weight-semibold);
 }
+
 .ktc-typography-body1 {
     font-size: var(--ktc-font-size-xs);
     line-height: var(--ktc-line-height-xs);
     font-weight: var(--ktc-font-weight-regular);
 }
+
 .ktc-typography-body2 {
     font-size: var(--ktc-font-size-2xs);
     line-height: var(--ktc-line-height-2xs);
     font-weight: var(--ktc-font-weight-regular);
 }
+
 .ktc-typography-caption {
     font-size: var(--ktc-font-size-3xs);
     line-height: var(--ktc-line-height-3xs);
