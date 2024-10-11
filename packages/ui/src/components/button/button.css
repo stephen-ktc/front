@@ -11,75 +11,125 @@
   line-height: 1; */
 }
 
-.storybook-button--contained {
+/* contained------------------------------------ */
+.storybook-button-primary-contained {
   border: 0;
-  color: white;
+  color: var(--ktc-color-white);
   background-color: var(--ktc-color-primary);
   /* 애니메이션 추가 (선택 사항) */
   transition: background-color 0.3s ease; 
 }
 
-.storybook-button--contained:hover {
-  background-color: var(--ktc-color-indigo-700);
+.storybook-button-primary-contained:hover {
+  background-color: var(--ktc-color-blue-700);
 }
 
-.storybook-button--contained:disabled {
+.storybook-button-primary-contained:disabled {
   border: 0;
   color: var(--ktc-color-gray-500);
   background-color: var(--ktc-color-gray-200);
   cursor: default;
 }
 
-.storybook-button--outlined {
-  border: 1px solid var(--ktc-color-primary);
-  color: var(--ktc-color-primary);
-  background-color: white;
+.storybook-button-secondary-contained {
+  border: 0;
+  color: var(--ktc-color-white);
+  background-color: var(--ktc-color-secondary);
+  /* 애니메이션 추가 (선택 사항) */
+  transition: background-color 0.3s ease; 
 }
 
-.storybook-button--outlined:hover {
-  /* hover 시 변경될 색상 */
-  border: 1px solid var(--ktc-color-indigo-700);
-  color: var(--ktc-color-indigo-700);
-  background-color: #f8f8f8;
-  transition: background-color 0.3s ease;
+.storybook-button-secondary-contained:hover {
+  background-color: var(--ktc-color-teal-700);
 }
 
-.storybook-button--outlined:disabled {
-  /* hover 시 변경될 색상 */
-  border: 1px solid var(--ktc-color-gray-200);
+.storybook-button-secondary-contained:disabled {
+  border: 0;
   color: var(--ktc-color-gray-500);
-  background-color: white;
+  background-color: var(--ktc-color-gray-200);
   cursor: default;
 }
 
-.storybook-button--text {
-  border: 0;
+
+/* outlined------------------------------------ */
+.storybook-button-primary-outlined {
+  border: 1px solid var(--ktc-color-primary);
   color: var(--ktc-color-primary);
-  background-color: white;
+  background-color: var(--ktc-color-white);
 }
 
-.storybook-button--text:hover {
+.storybook-button-primary-outlined:hover {
+  /* hover 시 변경될 색상 */
+  border: 1px solid var(--ktc-color-blue-700);
+  color: var(--ktc-color-blue-700);
+  background-color: #fcfcfc;
+  transition: background-color 0.3s ease;
+}
+
+.storybook-button-primary-outlined:disabled {
+  border: 1px solid var(--ktc-color-gray-200);
+  color: var(--ktc-color-gray-500);
+  background-color: var(--ktc-color-white);
+  cursor: default;
+}
+
+.storybook-button-secondary-outlined {
+  border: 1px solid var(--ktc-color-secondary);
+  color: var(--ktc-color-secondary);
+  background-color: var(--ktc-color-white);
+}
+
+.storybook-button-secondary-outlined:hover {
+  border: 1px solid var(--ktc-color-teal-700);
+  color: var(--ktc-color-teal-700);
+  background-color: var(--ktc-color-white);
+}
+
+.storybook-button-secondary-outlined:disabled {
+  border: 1px solid var(--ktc-color-gray-200);
+  color: var(--ktc-color-gray-500);
+  background-color: var(--ktc-color-white);
+  cursor: default;
+}
+
+
+/* text------------------------------------ */
+.storybook-button-primary-text {
+  border: 0;
+  color: var(--ktc-color-primary);
+  background-color: var(--ktc-color-white);
+}
+
+.storybook-button-primary-text:hover {
   border: 0;
   background-color: var(--ktc-color-gray-50);
   transition: background-color 0.3s ease;
 }
 
-.storybook-button--text:disabled {
+.storybook-button-primary-text:disabled {
   border: 0;
   color: var(--ktc-color-gray-500);
-  background-color: white;
+  background-color: var(--ktc-color-white);
   cursor: default;
 }
 
-.storybook-button--primary {
-  color: white;
-  background-color: var(--ktc-color-primary);
+.storybook-button-secondary-text {
+  border: 0;
+  color: var(--ktc-color-secondary);
+  background-color: var(--ktc-color-white);
 }
 
-.storybook-button--secondary {
-  color: #333;
-  background-color: transparent;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+.storybook-button-secondary-text:hover {
+  border: 0;
+  background-color: var(--ktc-color-gray-50);
+  transition: background-color 0.3s ease;
+}
+
+.storybook-button-secondary-text:disabled {
+  border: 0;
+  color: var(--ktc-color-gray-500);
+  background-color: var(--ktc-color-white);
+  cursor: default;
 }
 
 .storybook-button--small {
