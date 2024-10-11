@@ -19,7 +19,7 @@ const meta: Meta<typeof Badge> = {
     },
     content: {
       description: 'Badge에 표시하는 값입니다.',
-      control: { type: 'select', required: true },
+      control: { type: 'number', required: true },
     },
     max: {
       description: 'Badge에 표시할 수 있는 최대 숫자를 설정합니다.',
