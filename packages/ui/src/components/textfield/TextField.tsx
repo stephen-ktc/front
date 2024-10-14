@@ -90,7 +90,11 @@ export const TextField = ({
             {...props}
           />
         </div>
-        {(error || helperText) && <span className="ktc-textfield-error">{helperText}</span>}
+        {error ? (
+          <span className="ktc-textfield-error">{helperText}</span>
+        ) : (
+          <span className="ktc-textfield-helperText">{helperText}</span>
+        )}
       </div>
     </div>
   )
