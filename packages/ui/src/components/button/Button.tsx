@@ -1,27 +1,47 @@
-import React from 'react'
-import './button.css'
+import React, { useState } from 'react'
+import './button.scss'
 
 export interface ButtonProps {
-  primary?: boolean
+  disabled?: boolean
+  loading?: boolean
   size?: 'small' | 'medium' | 'large'
+  variant?: 'contained' | 'outlined' | 'text'
+  color?: 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning'
+  href?: string
   label: string
-  backgroundColor?: string
   onClick?: () => void
 }
 
 export const Button = ({
-                         primary = false,
-                         size = 'medium',
-                         backgroundColor,
-                         label,
-                         ...props
+                        disabled = false,
+                        loading = false,
+                        size = 'medium',
+                        variant = 'contained',
+                        color = 'primary',
+                        href,
+                        label,
+                        onClick,
+                        ...props
                        }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary'
-  return <button
-    type="button"
-    className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-    {...props}
-  >
-    {label}
-  </button>
+                         
+  return(
+    loading? 
+      <button 
+        type='button'
+        className={['loading-button', `storybook-button--${size}`, `storybook-button-spin-${variant}`].join(' ')} 
+        disabled={true}
+      >
+        <span className={[`loader-${variant}`].join(' ')}></span>
+      </button>
+    :
+      <button
+        type='button'
+        // disabled={disabled}
+        className={['storybook-button', `storybook-button--${size}`, `storybook-button-${color}-${variant}`].join(' ')}
+        onClick={href ? () => (window.location.href = href) : onClick}
+        {...props}
+      >
+        {label}
+      </button>
+  )  
 }

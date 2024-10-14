@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "prettier": "^3.2.5",
+    "sass-embedded": "^1.79.4",
     "turbo": "^2.1.2",
     "typescript": "^5.4.5"
   },
