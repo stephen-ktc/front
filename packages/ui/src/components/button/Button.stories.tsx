@@ -4,7 +4,18 @@ import { Button } from './Button'
 import {ButtonProps} from './Button';
 // import { fn } from '@storybook/test'
 
-const meta: Meta<typeof Button>= {
+interface IMeta {
+  title: string;
+  component: {}
+  parameters: {}
+  tags: [string]
+  args?: {} 
+  // args?: () => ArgsStoryFn // 체크 필요
+  // argTypes: {}
+  render?: any
+}
+
+const meta: IMeta = {
   title: 'Example/Button',
   component: Button,
   parameters: {
@@ -19,7 +30,7 @@ type Story = StoryObj<typeof meta>
 
 const Container = ({children}: { children: ReactNode }) => {
   return (
-      <div style={{width: '300px', height:' 100px', background: 'pink', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '8px'}}>
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '8px'}}>
           <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>{children}</div>
       </div>
   )
@@ -28,9 +39,9 @@ const Container = ({children}: { children: ReactNode }) => {
 const Template = (args: ButtonProps) => (
   <div style={{display: 'flex', flexDirection: 'column', gap: '32px'}}>
     <Container>
-      <Button {...args} color='primary' size='small'/>
-      <Button {...args} color='secondary' size='medium'/>
-      <Button {...args} disabled size='large'/>
+      <Button {...args} variant='contained' label='contained'/>
+      <Button {...args} variant='outlined' label='outlined'/>
+      <Button {...args} variant='text' label='text'/>
     </Container>
   </div>
 )
@@ -38,34 +49,39 @@ const Template = (args: ButtonProps) => (
 const Template2 = (args: ButtonProps) => (
   <div style={{display: 'flex', flexDirection: 'column', gap: '32px'}}>
     <Container>
-      <Button {...args} size='small'/>
-      <Button {...args} variant='outlined' size='medium'/>
-      <Button {...args} variant='text' size='large'/>
+      <Button {...args} size='small' />
+      <Button {...args} size='medium'/>
+      <Button {...args} size='large'/>
     </Container>
   </div>
 )
 
-export const contained: Story = {
-  render: Template,
+const Template3 = (args: ButtonProps) => (
+  <div style={{display: 'flex', flexDirection: 'column', gap: '32px'}}>
+    <Container>
+      <Button {...args} color='primary'/>
+      <Button {...args} color='secondary'/>
+    </Container>
+  </div>
+)
+
+export const Default: Story = {
+  args: { 
+    label: 'Button',
+  },
+};
+
+export const color: Story = {
+  render: Template3,
   args: { label: 'Button',
-          variant: 'contained',
-          onClick: () => console.log('clicked')
+          
         },
 };
 
-export const outlined: Story = {
-  render: Template,
+export const disable: Story = {
+  render: Template2,
   args: { label: 'Button',
-          variant: 'outlined',
-          href: 'http://www.naver.com'
-        },
-};
-
-export const text: Story = {
-  render: Template,
-  args: { label: 'Button',
-          variant: 'text',
-          onClick: () => console.log('clicked')
+          disabled: true,
         },
 };
 
@@ -75,5 +91,17 @@ export const loading: Story = {
           loading: true,
         },
 };
+
+export const variant: Story = {
+  render: Template,
+};
+
+export const size: Story = {
+  render: Template2,
+  args: { 
+    label: 'Button',
+  },
+};
+
   
 
