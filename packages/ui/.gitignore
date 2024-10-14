@@ -39,6 +39,3 @@ next-env.d.ts
 
 # storybook
 *storybook.log
-
-# rollup
-.rollup.cache
