@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import './textField.css'
+import './textField.scss'
 
 interface TextFieldProps {
-  color?: 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning'
+  color?: 'primary' | 'secondary' | 'error' | 'success' | 'warning'
   value?: string
   variant?: 'filled' | 'outlined' | 'standard'
   error?: boolean
+  helperText?: string
   id?: string
   label?: string
   placeholder?: string
@@ -18,13 +19,14 @@ export const TextField = ({
   color = 'primary',
   value = '',
   variant = 'outlined',
-  error = false,
   id,
   label,
   placeholder,
   required = false,
   size = 'medium',
   onChange,
+  error = false,
+  helperText,
   ...props
 }: TextFieldProps) => {
   const [isFocused, setIsFocused] = useState(false)
@@ -45,34 +47,51 @@ export const TextField = ({
       onChange(e)
     }
   }
+  const getClassNames = (...classes: Array<string | false | null | undefined>) =>
+    classes.filter(Boolean).join(' ')
 
   return (
-    <div className={`textfield--${size} textfield--${variant} ${error ? 'textfield--error' : ''}`}>
+    <div className="ktc-textfield-root">
       <div
-        className={`textfield__wrapper ${isFocused || internalValue ? 'textfield__wrapper--focused' : ''}`}
-      >
-        {label && (
-          <label
-            htmlFor={id}
-            className={`textfield__label textfield__label--${color} ${isFocused || internalValue ? 'textfield__label--active' : ''}`}
-          >
-            {label}
-          </label>
+        className={getClassNames(
+          `ktc-textfield-${size}`,
+          `ktc-textfield-${variant}`,
+          error && 'ktc-textfield-error',
         )}
-        <input
-          type="text"
-          id={id}
-          value={internalValue}
-          className={`textfield__input textfield__input--${color}`}
-          placeholder={showPlaceholder ? placeholder : ''}
-          required={required}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          onChange={handleChange}
-          {...props}
-        />
+      >
+        <div
+          className={getClassNames(
+            'ktc-textfield-wrapper',
+            (isFocused || internalValue) && 'ktc-textfield-wrapper--focused',
+          )}
+        >
+          {label && (
+            <label
+              htmlFor={id}
+              className={getClassNames(
+                `ktc-textfield-label`,
+                `ktc-textfield-label--${color}`,
+                (isFocused || internalValue) && 'ktc-textfield-label-active',
+              )}
+            >
+              {label}
+            </label>
+          )}
+          <input
+            type="text"
+            id={id}
+            value={internalValue}
+            className={getClassNames(`ktc-textfield-input`, `ktc-textfield-input--${color}`)}
+            placeholder={showPlaceholder ? placeholder : ''}
+            required={required}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            {...props}
+          />
+        </div>
+        {(error || helperText) && <span className="ktc-textfield-error">{helperText}</span>}
       </div>
-      {error && <span className="textfield__error">Error</span>}
     </div>
   )
 }
