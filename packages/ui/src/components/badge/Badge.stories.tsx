@@ -1,14 +1,25 @@
-import type { Args, Meta, StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 import { BellIcon } from '@storybook/icons'
 import { Badge } from './Badge.tsx'
+import { Args } from '@storybook/csf'
 
-const meta: Meta<typeof Badge> = {
-  title: 'Example/Badge',
+interface IMeta {
+  title: string
+  component: object
+  parameters: any
+  tags: string[]
+  args?: object
+  argTypes: object
+  render?: any
+}
+
+const meta: IMeta = {
+  title: 'Components/Badge',
   component: Badge,
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', '!dev'],
   argTypes: {
     color: {
       description: 'Badge 색상을 설정합니다.',
@@ -32,12 +43,12 @@ const meta: Meta<typeof Badge> = {
 }
 export default meta
 
-type Story = StoryObj<typeof Badge>
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
     content: 3,
-    children: <BellIcon />,
+    children: <BellIcon size={17} />,
   },
 }
 
@@ -45,25 +56,25 @@ export const Color: Story = {
   args: {
     content: 3,
     color: 'primary',
-    children: <BellIcon />,
+    children: <BellIcon size={17} />,
   },
   render: (args: Args) => {
     return (
       <div style={{ display: 'flex', justifyContent: 'space-between', gap: '40px' }}>
         <Badge content={5} color={'primary'}>
-          <BellIcon />
+          {args.children}
         </Badge>
         <Badge content={5} color={'secondary'}>
-          <BellIcon />
+          {args.children}
         </Badge>
         <Badge content={5} color={'success'}>
-          <BellIcon />
+          {args.children}
         </Badge>
         <Badge content={5} color={'warning'}>
-          <BellIcon />
+          {args.children}
         </Badge>
         <Badge content={5} color={'error'}>
-          <BellIcon />
+          {args.children}
         </Badge>
       </div>
     )
@@ -73,16 +84,16 @@ export const Variant: Story = {
   args: {
     content: 3,
     variant: 'dot',
-    children: <BellIcon />,
+    children: <BellIcon size={17} />,
   },
   render: (args: Args) => {
     return (
       <div style={{ display: 'flex', justifyContent: 'space-evenly', gap: '50px' }}>
         <Badge content={args.content} variant={'standard'}>
-          <BellIcon />
+          {args.children}
         </Badge>
         <Badge content={args.content} variant={'dot'}>
-          <BellIcon />
+          {args.children}
         </Badge>
       </div>
     )
@@ -93,19 +104,19 @@ export const ShowZero: Story = {
   args: {
     content: 0,
     showZero: true,
-    children: <BellIcon />,
+    children: <BellIcon size={17} />,
   },
   render: (args: Args) => {
     return (
       <div style={{ display: 'flex', justifyContent: 'space-evenly', gap: '50px' }}>
         <Badge content={args.content} showZero={true}>
-          <BellIcon />
+          {args.children}
         </Badge>
         <Badge content={args.content} variant={'dot'} showZero={true}>
-          <BellIcon />
+          {args.children}
         </Badge>
         <Badge content={args.content} showZero={false}>
-          <BellIcon />
+          {args.children}
         </Badge>
       </div>
     )
@@ -115,7 +126,7 @@ export const MaxValue: Story = {
   args: {
     content: 55,
     max: 50,
-    children: <BellIcon />,
+    children: <BellIcon size={17} />,
   },
   render: (args: Args) => (
     <>

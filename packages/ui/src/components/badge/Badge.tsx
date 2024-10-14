@@ -1,5 +1,5 @@
 import React, { CSSProperties, ReactNode, useMemo } from 'react'
-import './badge.css'
+import './badge.scss'
 
 export interface BadgeProps {
   color?: 'primary' | 'secondary' | 'error' | 'success' | 'warning'
