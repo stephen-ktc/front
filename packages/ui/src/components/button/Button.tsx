@@ -1,27 +1,47 @@
-import React from 'react'
-import './button.css'
+import React, { useState } from 'react'
+import './button.scss'
 
 export interface ButtonProps {
-  primary?: boolean
-  size?: 'small' | 'medium' | 'large'
+  color?: 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning'
+  disabled?: boolean
+  href?: string
   label: string
-  backgroundColor?: string
+  loading?: boolean
+  variant?: 'contained' | 'outlined' | 'text'
+  size?: 'small' | 'medium' | 'large'
   onClick?: () => void
 }
 
-export const Button = ({
-                         primary = false,
-                         size = 'medium',
-                         backgroundColor,
-                         label,
-                         ...props
+export const Button = ({  
+                        color = 'primary',
+                        disabled = false,
+                        href,
+                        label,
+                        loading = false,
+                        variant = 'contained',
+                        size = 'medium',
+                        onClick,
+                        ...props
                        }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary'
-  return <button
-    type="button"
-    className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-    {...props}
-  >
-    {label}
-  </button>
+                         
+  return(
+    loading? 
+      <button 
+        type='button'
+        className={['loading-button', `storybook-button--${size}`, `storybook-button-spin-${variant}`].join(' ')} 
+        disabled={true}
+      >
+        <span className={[`loader-${variant}`].join(' ')}></span>
+      </button>
+    :
+      <button
+        type='button'
+        disabled={disabled}
+        className={['storybook-button', `storybook-button--${size}`, `storybook-button-${color}-${variant}`].join(' ')}
+        onClick={href ? () => (window.location.href = href) : onClick}
+        {...props}
+      >
+        {label}
+      </button>
+  )  
 }
