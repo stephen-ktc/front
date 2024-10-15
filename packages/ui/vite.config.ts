@@ -6,7 +6,14 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 import { libInjectCss } from 'vite-plugin-lib-inject-css'
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), libInjectCss(), dts({ exclude: ['**/*.stories.ts'] }), tsconfigPaths(),],
+  plugins: [react(), libInjectCss(), dts({ exclude: ['**/*.stories.ts'] }), tsconfigPaths()],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern',
+      },
+    },
+  },
   build: {
     // cssCodeSplit: false,
     lib: {
