@@ -66,7 +66,6 @@ export const TextField = ({
             (isFocused || internalValue) && 'ktc-textfield-wrapper--focused',
           )}
         >
-          {/* label과 input을 같은 부모 div 안에 배치 */}
           {label && (
             <label
               htmlFor={id}
