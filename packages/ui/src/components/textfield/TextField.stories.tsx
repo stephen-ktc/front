@@ -68,6 +68,18 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+export const Default: Story = {
+  args: {
+    label: 'label',
+    placeholder: 'Enter placeholder',
+    variant: 'outlined',
+    size: 'medium',
+    color: 'primary',
+    required: true,
+    value: '',
+  },
+}
+
 export const Variant: Story = {
   render: (args: Args) => {
     return (
