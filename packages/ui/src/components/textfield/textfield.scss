@@ -48,27 +48,22 @@
       border: 1px solid var(--ktc-color-gray-300);
 
       &--primary {
-        border-color: var(--ktc-color-primary);
         @include focus-hover(var(--ktc-color-primary));
       }
 
       &--secondary {
-        border-color: var(--ktc-color-secondary);
         @include focus-hover(var(--ktc-color-secondary));
       }
 
       &--error {
-        border-color: var(--ktc-color-error);
         @include focus-hover(var(--ktc-color-error));
       }
 
       &--success {
-        border-color: var(--ktc-color-success);
         @include focus-hover(var(--ktc-color-success));
       }
 
       &--warning {
-        border-color: var(--ktc-color-warning);
         @include focus-hover(var(--ktc-color-warning));
       }
     }

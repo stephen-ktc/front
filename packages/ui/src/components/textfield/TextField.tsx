@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, ReactNode } from 'react'
 import './textField.scss'
 
 interface TextFieldProps {
@@ -13,6 +13,7 @@ interface TextFieldProps {
   required?: boolean
   size?: 'small' | 'medium' | 'large'
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  children?: ReactNode
 }
 
 export const TextField = ({
@@ -77,6 +78,7 @@ export const TextField = ({
               {label}
             </label>
           )}
+          {props.children && props.children}
           <input
             type="text"
             id={id}
