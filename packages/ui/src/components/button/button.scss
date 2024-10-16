@@ -1,0 +1,177 @@
+.storybook-button {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  /* border: 0; */
+  /* border-radius: 3em; */
+  border-radius: var(--ktc-radius-s);
+  cursor: pointer;
+  /* display: inline-block;
+  line-height: 1; */  
+}
+
+/* contained------------------------------------ */
+@mixin button-contained($color, $hover-color) {
+  border: 0;
+  color: var(--ktc-color-white);
+  background-color: $color;
+  transition: background-color 0.3s ease; /* 애니메이션 추가 (선택 사항) */
+  
+  &:hover {
+    background-color: $hover-color;
+  }
+
+  &:disabled {
+    border: 0;
+    color: var(--ktc-color-gray-500);
+    background-color: var(--ktc-color-gray-200);
+    cursor: default;
+  }
+}
+
+/* primary 버튼 스타일 */
+.storybook-button-primary-contained {
+  @include button-contained(var(--ktc-color-primary), var(--ktc-color-blue-700));
+}
+
+/* secondary 버튼 스타일 */
+.storybook-button-secondary-contained {
+  @include button-contained(var(--ktc-color-secondary), var(--ktc-color-teal-700));
+}
+
+/* outlined------------------------------------ */
+@mixin outlined-button($color, $hover-color) {
+  border: 1px solid $color;
+  color: $color;
+  background-color: var(--ktc-color-white);
+
+  &:hover {
+    border: 1px solid $hover-color;
+    color: $hover-color;
+    background-color: #fcfcfc;
+    transition: background-color 0.3s ease;
+  }
+
+  &:disabled {
+    border: 1px solid var(--ktc-color-gray-200);
+    color: var(--ktc-color-gray-500);
+    background-color: var(--ktc-color-white);
+    cursor: default;
+  }
+}
+
+/* primary 버튼 스타일 */
+.storybook-button-primary-outlined {
+  @include outlined-button(var(--ktc-color-primary), var(--ktc-color-blue-700));
+}
+
+/* secondary 버튼 스타일 */
+.storybook-button-secondary-outlined {
+  @include outlined-button(var(--ktc-color-secondary), var(--ktc-color-teal-700));
+}
+
+
+/* text------------------------------------ */
+@mixin text-button($color) {
+  border: 0;
+  color: $color;
+  background-color: var(--ktc-color-white);
+
+  &:hover {
+    background-color: var(--ktc-color-gray-50);
+    transition: background-color 0.3s ease;
+  }
+
+  &:disabled {
+    color: var(--ktc-color-gray-500);
+    background-color: var(--ktc-color-white);
+    cursor: default;
+  }
+}
+
+/* primary 버튼 스타일 */
+.storybook-button-primary-text {
+  @include text-button(var(--ktc-color-primary));
+}
+
+/* secondary 버튼 스타일 */
+.storybook-button-secondary-text {
+  @include text-button(var(--ktc-color-secondary));
+}
+
+.storybook-button--small {
+  font-size: 12px;
+  padding: 8px 16px;
+  min-width: 70px;
+  height: 40px;
+}
+
+.storybook-button--medium {
+  font-size: 14px;
+  padding: 10px 18px;
+  min-width: 80px;
+  height: 45px;
+}
+
+.storybook-button--large {
+  font-size: 16px;
+  padding: 12px 20px;
+  min-width: 90px;
+  height: 50px;
+}
+
+
+/* loading------------------------------------ */
+@mixin loading-button($border, $background-color) {
+  border-radius: var(--ktc-radius-s);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  &:disabled {
+    border: $border;
+    background-color: $background-color;
+    cursor: not-allowed;
+  }
+}
+
+.storybook-button-spin-contained {
+  @include loading-button(0, var(--ktc-color-gray-200));
+}
+
+.storybook-button-spin-outlined {
+  @include loading-button(1px solid var(--ktc-color-gray-200), var(--ktc-color-white));
+}
+
+.storybook-button-spin-text {
+  @include loading-button(0, var(--ktc-color-white));
+}
+
+/* 로딩 애니메이션 스타일 */
+@mixin loader($border-color) {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid $border-color;
+  border-top: 1.5px solid var(--ktc-color-gray-500);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loader-contained {
+  @include loader(var(--ktc-color-gray-200))
+}
+
+.loader-outlined {
+  @include loader(var(--ktc-color-white))
+}
+
+.loader-text {
+  @include loader(var(--ktc-color-white))
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
