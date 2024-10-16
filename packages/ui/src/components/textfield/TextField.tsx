@@ -13,7 +13,6 @@ interface TextFieldProps {
   required?: boolean
   size?: 'small' | 'medium' | 'large'
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  children?: ReactNode
 }
 
 export const TextField = ({
