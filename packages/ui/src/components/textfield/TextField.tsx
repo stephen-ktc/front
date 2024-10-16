@@ -66,19 +66,19 @@ export const TextField = ({
             (isFocused || internalValue) && 'ktc-textfield-wrapper--focused',
           )}
         >
+          {/* label과 input을 같은 부모 div 안에 배치 */}
           {label && (
             <label
               htmlFor={id}
               className={getClassNames(
                 `ktc-textfield-label`,
-                `ktc-textfield-label--${color}`,
-                (isFocused || internalValue) && 'ktc-textfield-label-active',
+                (isFocused || internalValue) &&
+                  `ktc-textfield-label-active ktc-textfield-label--${color}`,
               )}
             >
               {label}
             </label>
           )}
-          {props.children && props.children}
           <input
             type="text"
             id={id}

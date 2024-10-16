@@ -2,9 +2,11 @@
   &:focus,
   &:hover {
     border-color: $color;
+    + .ktc-textfield-label {
+      color: $color;
+    }
   }
 }
-
 .ktc-textfield {
   position: relative;
   display: inline-flex;
@@ -25,6 +27,26 @@
     color: var(--ktc-color-gray-600);
     pointer-events: none;
     transition: 0.2s ease all;
+
+    &--primary {
+      color: var(--ktc-color-primary);
+    }
+
+    &--secondary {
+      color: var(--ktc-color-secondary);
+    }
+
+    &--error {
+      color: var(--ktc-color-error);
+    }
+
+    &--success {
+      color: var(--ktc-color-success);
+    }
+
+    &--warning {
+      color: var(--ktc-color-warning);
+    }
 
     &-active {
       top: -10px;
@@ -75,6 +97,26 @@
       background-color: var(--ktc-color-gray-100);
       padding: 12px 10px;
       border-bottom: 1px solid var(--ktc-color-gray-300);
+
+      &--primary {
+        @include focus-hover(var(--ktc-color-primary));
+      }
+
+      &--secondary {
+        @include focus-hover(var(--ktc-color-secondary));
+      }
+
+      &--error {
+        @include focus-hover(var(--ktc-color-error));
+      }
+
+      &--success {
+        @include focus-hover(var(--ktc-color-success));
+      }
+
+      &--warning {
+        @include focus-hover(var(--ktc-color-warning));
+      }
 
       &.ktc-textfield-error {
         border-bottom: 1px solid var(--ktc-color-error);
@@ -134,11 +176,13 @@
     font-size: var(--ktc-font-size-2xs);
     color: var(--ktc-color-gray-600);
     margin-top: 4px;
+
     .ktc-textfield-input {
       &:focus,
       &:hover {
         border-color: var(--ktc-color-error);
       }
+
       border-color: var(--ktc-color-error);
     }
   }
@@ -153,6 +197,7 @@
       &:hover {
         border-color: var(--ktc-color-error);
       }
+
       border-color: var(--ktc-color-error);
     }
   }
