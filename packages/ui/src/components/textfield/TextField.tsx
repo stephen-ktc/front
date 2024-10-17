@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ReactNode } from 'react'
-import './textField.scss'
+import './textfield.scss'
 
 interface TextFieldProps {
   color?: 'primary' | 'secondary' | 'error' | 'success' | 'warning'
