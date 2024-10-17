@@ -87,13 +87,8 @@ export const Variant: Story = {
         <div
           style={{ display: 'flex', justifyContent: 'space-between', gap: '40px', margin: '40px' }}
         >
-          <TextField label={'outlined'}>{args.children}</TextField>
-          <TextField label={'standard'} variant={'standard'}>
-            {args.children}
-          </TextField>
-          <TextField label={'filled'} variant={'filled'}>
-            {args.children}
-          </TextField>
+          <TextField label={'standard'} variant={'standard'} />
+          <TextField label={'filled'} variant={'filled'} />
         </div>
       </>
     )
@@ -107,40 +102,20 @@ export const Color: Story = {
         <div
           style={{ display: 'flex', justifyContent: 'space-between', gap: '40px', margin: '40px' }}
         >
-          <TextField label={'primary'} color={'primary'}>
-            {args.children}
-          </TextField>
-          <TextField label={'secondary'} color={'secondary'}>
-            {args.children}
-          </TextField>
-          <TextField label={'success'} color={'success'}>
-            {args.children}
-          </TextField>
-          <TextField label={'warning'} color={'warning'}>
-            {args.children}
-          </TextField>
-          <TextField label={'error'} color={'error'}>
-            {args.children}
-          </TextField>
+          <TextField label={'primary'} color={'primary'} />
+          <TextField label={'secondary'} color={'secondary'} />
+          <TextField label={'success'} color={'success'} />
+          <TextField label={'warning'} color={'warning'} />
+          <TextField label={'error'} color={'error'} />
         </div>
         <div
           style={{ display: 'flex', justifyContent: 'space-between', gap: '40px', margin: '40px' }}
         >
-          <TextField label={'primary'} color={'primary'} variant={'standard'}>
-            {args.children}
-          </TextField>
-          <TextField label={'secondary'} color={'secondary'} variant={'standard'}>
-            {args.children}
-          </TextField>
-          <TextField label={'success'} color={'success'} variant={'standard'}>
-            {args.children}
-          </TextField>
-          <TextField label={'warning'} color={'warning'} variant={'standard'}>
-            {args.children}
-          </TextField>
-          <TextField label={'error'} color={'error'} variant={'standard'}>
-            {args.children}
-          </TextField>
+          <TextField label={'primary'} color={'primary'} variant={'standard'} />
+          <TextField label={'secondary'} color={'secondary'} variant={'standard'} />
+          <TextField label={'success'} color={'success'} variant={'standard'} />
+          <TextField label={'warning'} color={'warning'} variant={'standard'} />
+          <TextField label={'error'} color={'error'} variant={'standard'} />
         </div>
       </>
     )
@@ -159,15 +134,9 @@ export const Size: Story = {
             alignItems: 'center',
           }}
         >
-          <TextField label={'outlined'} size={'small'}>
-            {args.children}
-          </TextField>
-          <TextField label={'outlined'} size={'medium'}>
-            {args.children}
-          </TextField>
-          <TextField label={'outlined'} size={'large'}>
-            {args.children}
-          </TextField>
+          <TextField label={'outlined'} size={'small'} />
+          <TextField label={'outlined'} size={'medium'} />
+          <TextField label={'outlined'} size={'large'} />
         </div>
       </>
     )

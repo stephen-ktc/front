@@ -1,5 +1,5 @@
 import {ReactNode} from 'react';
-import type { Meta, StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 import { Button } from './Button'
 import {ButtonProps} from './Button';
 // import { fn } from '@storybook/test'
@@ -8,7 +8,7 @@ interface IMeta {
   title: string;
   component: {}
   parameters: {}
-  tags: [string]
+  tags: string[]
   args?: {} 
   // args?: () => ArgsStoryFn // 체크 필요
   // argTypes: {}
@@ -16,17 +16,20 @@ interface IMeta {
 }
 
 const meta: IMeta = {
-  title: 'Example/Button',
+  title: 'Components/Button',
   component: Button,
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', '!dev'],
+  args: { 
+    label: 'Button',
+  },
   // args: { onClick: fn() },
 }
 export default meta
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<ButtonProps>;
 
 const Container = ({children}: { children: ReactNode }) => {
   return (
@@ -73,27 +76,32 @@ export const Default: Story = {
 
 export const color: Story = {
   render: Template3,
-  args: { label: 'Button',
-          
-        },
+  args: { 
+    label: 'Button', 
+  },
 };
 
 export const disable: Story = {
   render: Template2,
-  args: { label: 'Button',
-          disabled: true,
-        },
+  args: { 
+    label: 'Button',
+    disabled: true,
+  },
 };
 
 export const loading: Story = {
   render: Template2,
-  args: { label: 'Button',
-          loading: true,
-        },
+  args: { 
+    label: 'Button',
+    loading: true,
+  },
 };
 
 export const variant: Story = {
   render: Template,
+  args: { 
+    label: 'Button',
+  },
 };
 
 export const size: Story = {
@@ -102,6 +110,3 @@ export const size: Story = {
     label: 'Button',
   },
 };
-
-  
-
