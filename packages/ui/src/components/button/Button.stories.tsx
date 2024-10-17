@@ -3,6 +3,7 @@ import type { StoryObj } from '@storybook/react'
 import { Button } from './Button'
 import {ButtonProps} from './Button';
 // import { fn } from '@storybook/test'
+import { BellIcon } from '@storybook/icons'
 
 interface IMeta {
   title: string;
@@ -39,17 +40,16 @@ const Container = ({children}: { children: ReactNode }) => {
   )
 }
 
-const Template = (args: ButtonProps) => (
+const ColorTemplate = (args: ButtonProps) => (
   <div style={{display: 'flex', flexDirection: 'column', gap: '32px'}}>
     <Container>
-      <Button {...args} variant='contained' label='contained'/>
-      <Button {...args} variant='outlined' label='outlined'/>
-      <Button {...args} variant='text' label='text'/>
+      <Button {...args} color='primary'/>
+      <Button {...args} color='secondary'/>
     </Container>
   </div>
 )
 
-const Template2 = (args: ButtonProps) => (
+const SizeTemplate = (args: ButtonProps) => (
   <div style={{display: 'flex', flexDirection: 'column', gap: '32px'}}>
     <Container>
       <Button {...args} size='small' />
@@ -59,11 +59,12 @@ const Template2 = (args: ButtonProps) => (
   </div>
 )
 
-const Template3 = (args: ButtonProps) => (
+const VariantTemplate = (args: ButtonProps) => (
   <div style={{display: 'flex', flexDirection: 'column', gap: '32px'}}>
     <Container>
-      <Button {...args} color='primary'/>
-      <Button {...args} color='secondary'/>
+      <Button {...args} variant='contained' label='contained'/>
+      <Button {...args} variant='outlined' label='outlined'/>
+      <Button {...args} variant='text' label='text'/>
     </Container>
   </div>
 )
@@ -75,14 +76,14 @@ export const Default: Story = {
 };
 
 export const color: Story = {
-  render: Template3,
+  render: ColorTemplate,
   args: { 
     label: 'Button', 
   },
 };
 
 export const disable: Story = {
-  render: Template2,
+  render: SizeTemplate,
   args: { 
     label: 'Button',
     disabled: true,
@@ -90,7 +91,7 @@ export const disable: Story = {
 };
 
 export const loading: Story = {
-  render: Template2,
+  render: SizeTemplate,
   args: { 
     label: 'Button',
     loading: true,
@@ -98,15 +99,29 @@ export const loading: Story = {
 };
 
 export const variant: Story = {
-  render: Template,
+  render: VariantTemplate,
   args: { 
     label: 'Button',
   },
 };
 
 export const size: Story = {
-  render: Template2,
+  render: SizeTemplate,
   args: { 
     label: 'Button',
+  },
+};
+
+export const StartIcon: Story = {
+  args: { 
+    label: 'Button',
+    startIcon: <BellIcon size={15}/>
+  },
+};
+
+export const EndIcon: Story = {
+  args: { 
+    label: 'Button',
+    endIcon: <BellIcon size={15}/>
   },
 };

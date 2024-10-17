@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 import './button.scss'
 
 export interface ButtonProps {
@@ -9,6 +9,8 @@ export interface ButtonProps {
   loading?: boolean
   variant?: 'contained' | 'outlined' | 'text'
   size?: 'small' | 'medium' | 'large'
+  startIcon?: ReactNode
+  endIcon?: ReactNode
   onClick?: () => void
 }
 
@@ -41,7 +43,12 @@ export const Button = ({
         onClick={href ? () => (window.location.href = href) : onClick}
         {...props}
       >
-        {label}
+        <div>
+          <span>{props.startIcon && props.startIcon}</span>
+          <span>{label}</span>
+          <span>{props.endIcon && props.endIcon}</span>
+        </div>
+        
       </button>
   )  
 }
