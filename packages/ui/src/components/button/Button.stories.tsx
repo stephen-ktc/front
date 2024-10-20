@@ -3,7 +3,7 @@ import type { StoryObj } from '@storybook/react'
 import { Button } from './Button'
 import {ButtonProps} from './Button';
 // import { fn } from '@storybook/test'
-import { BellIcon } from '@storybook/icons'
+import { TrashIcon } from '@storybook/icons'
 
 interface IMeta {
   title: string;
@@ -114,14 +114,17 @@ export const size: Story = {
 
 export const StartIcon: Story = {
   args: { 
-    label: 'Button',
-    startIcon: <BellIcon size={15}/>
+    label: 'Delete',
+    variant: 'contained',
+    startIcon: <TrashIcon size={16}/>
   },
 };
 
 export const EndIcon: Story = {
   args: { 
-    label: 'Button',
-    endIcon: <BellIcon size={15}/>
+    label: 'Delete',
+    variant: 'outlined',
+    color: 'secondary',
+    endIcon: <TrashIcon size={16}/>
   },
 };

@@ -5,8 +5,9 @@
   /* border-radius: 3em; */
   border-radius: var(--ktc-radius-s);
   cursor: pointer;
-  /* display: inline-block;
-  line-height: 1; */  
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 }
 
 /* contained------------------------------------ */
@@ -173,5 +174,20 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+@mixin storybook-icon-button($start, $end) {
+  display: inherit;
+  align-items: center;
+  margin-right: $start;
+  margin-left: $end;
+}
+
+.storybook-icon-button-start {
+  @include storybook-icon-button(5px, 0px)
+}
+
+.storybook-icon-button-end {
+  @include storybook-icon-button(0px, 5px)
 }
 

@@ -5,7 +5,7 @@ export interface ButtonProps {
   color?: 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning'
   disabled?: boolean
   href?: string
-  label: string
+  label?: string
   loading?: boolean
   variant?: 'contained' | 'outlined' | 'text'
   size?: 'small' | 'medium' | 'large'
@@ -39,16 +39,24 @@ export const Button = ({
       <button
         type='button'
         disabled={disabled}
-        className={['storybook-button', `storybook-button--${size}`, `storybook-button-${color}-${variant}`].join(' ')}
+        className={['storybook-button', 
+          `storybook-button--${size}`, 
+          `storybook-button-${color}-${variant}`
+        ].join(' ')}
         onClick={href ? () => (window.location.href = href) : onClick}
         {...props}
       >
-        <div>
-          <span>{props.startIcon && props.startIcon}</span>
+        { props.startIcon && 
+            <span className={['storybook-icon-button-start'].join(' ')}>
+              {props.startIcon}
+            </span>
+        }
           <span>{label}</span>
-          <span>{props.endIcon && props.endIcon}</span>
-        </div>
-        
+        { props.endIcon &&
+          <span className={['storybook-icon-button-end'].join(' ')}>
+            {props.endIcon}
+          </span>
+        }
       </button>
   )  
 }
