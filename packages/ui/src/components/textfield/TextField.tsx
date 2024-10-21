@@ -11,12 +11,12 @@ interface TextFieldProps {
   variant?: VariantOptions
   error?: boolean
   helperText?: string
-  id?: string
+  id?: string | any
   label?: string
-  placeholder?: string
-  required?: boolean
+  placeholder?: string | any
+  required?: boolean | any
   size?: SizeOptions
-  disabled?: boolean
+  disabled?: boolean | any
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
