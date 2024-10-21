@@ -1,5 +1,11 @@
 # @ktcloud-front/ui
 
+## 0.5.2
+
+### Patch Changes
+
+- 0.5.2
+
 ## 0.5.1
 
 ### Patch Changes

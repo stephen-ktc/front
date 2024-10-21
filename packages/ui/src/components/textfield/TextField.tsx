@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './textField.scss'
+import './textfield.scss'
 
 type ColorOptions = 'primary' | 'secondary' | 'error' | 'success' | 'warning'
 type SizeOptions = 'small' | 'medium' | 'large'
