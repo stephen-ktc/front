@@ -1,17 +1,22 @@
-import React, { useState, useEffect, ReactNode } from 'react'
-import './textfield.scss'
+import React, { useState, useEffect } from 'react'
+import './textField.scss'
+
+type ColorOptions = 'primary' | 'secondary' | 'error' | 'success' | 'warning'
+type SizeOptions = 'small' | 'medium' | 'large'
+type VariantOptions = 'filled' | 'outlined' | 'standard'
 
 interface TextFieldProps {
-  color?: 'primary' | 'secondary' | 'error' | 'success' | 'warning'
+  color?: ColorOptions
   value?: string
-  variant?: 'filled' | 'outlined' | 'standard'
+  variant?: VariantOptions
   error?: boolean
   helperText?: string
   id?: string
   label?: string
   placeholder?: string
   required?: boolean
-  size?: 'small' | 'medium' | 'large'
+  size?: SizeOptions
+  disabled?: boolean
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
@@ -26,6 +31,7 @@ export const TextField = ({
   size = 'medium',
   onChange,
   error = false,
+  disabled,
   helperText,
   ...props
 }: TextFieldProps) => {
@@ -35,7 +41,7 @@ export const TextField = ({
   const handleFocus = () => setIsFocused(true)
   const handleBlur = () => setIsFocused(false)
 
-  const showPlaceholder = !label && !value
+  const showPlaceholder = !internalValue && placeholder
 
   useEffect(() => {
     setInternalValue(value || '')
@@ -62,7 +68,7 @@ export const TextField = ({
         <div
           className={getClassNames(
             'ktc-textfield-wrapper',
-            (isFocused || internalValue) && 'ktc-textfield-wrapper--focused',
+            (isFocused || internalValue || showPlaceholder) && 'ktc-textfield-wrapper--focused',
           )}
         >
           {label && (
@@ -70,7 +76,7 @@ export const TextField = ({
               htmlFor={id}
               className={getClassNames(
                 `ktc-textfield-label`,
-                (isFocused || internalValue) &&
+                (isFocused || internalValue || showPlaceholder) &&
                   `ktc-textfield-label-active ktc-textfield-label--${color}`,
               )}
             >
@@ -86,6 +92,7 @@ export const TextField = ({
             required={required}
             onFocus={handleFocus}
             onBlur={handleBlur}
+            disabled={disabled}
             onChange={handleChange}
             {...props}
           />
