@@ -1,0 +1,90 @@
+@mixin focus-hover($color) {
+  &:focus,
+  &:hover {
+    border-color: $color;
+
+    + .ktc-select-label {
+      color: $color;
+    }
+  }
+}
+
+.ktc-select {
+
+  &-wrapper {
+    &-horizontal {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1.5em;
+    }
+
+    &-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+    }
+  }
+
+  &-label {
+    font-size: var(--ktc-font-size-xs);
+    font-weight: var(--ktc-font-weight-semibold);
+  }
+
+  &-controlBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &-small {
+      cursor: pointer;
+      padding: 8px 10px;
+      font-size: var(--ktc-font-size-xs);
+      min-width: 200px;
+    }
+
+    &-medium {
+      cursor: pointer;
+      padding: 12px 10px;
+      font-size: var(--ktc-font-size-s);
+      min-width: 200px;
+    }
+
+    &-outlined {
+      border: 1px solid var(--ktc-color-gray-300);
+      border-radius: var(--ktc-radius-m);
+      @include focus-hover(var(--ktc-color-primary));
+    }
+
+    &-standard {
+      border-bottom: 1px solid var(--ktc-color-gray-300);
+      //border-radius: var(--ktc-radius-m);
+    }
+
+    .ktc-control__opener {
+      transform: rotate(0);
+      transition: transform 0.15s linear;
+
+      &.t-dropdown__control__opener--open {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &-menuList {
+    box-shadow: var(--ktc-shadow-l);
+    border: 1px solid var(--ktc-color-gray-300);
+  }
+
+  &-menuItem {
+    box-shadow: var(--ktc-shadow-l);
+    //border: 1px solid var(--ktc-color-gray-300);
+    padding: 8px 10px;
+    font-size: var(--ktc-font-size-xs);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--ktc-color-blue-50);
+    }
+  }
+}
